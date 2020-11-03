@@ -33,7 +33,6 @@ function set_array(num, choice) {
 
 function sort() {
   menu = document.getElementById("menu");
-  console.log(menu);
   menu.style.display="none";
   
   //sorting
@@ -44,7 +43,7 @@ function sort() {
       break;
     case "Bubble sort":
       set_paramenters(arr_size, array); 
-      window.requestAnimationFrame(Selection_sort);
+      window.requestAnimationFrame(bubble_sort);
       break;  
     default:
       break;

@@ -22,7 +22,7 @@ function swap_height(min_index){
 
 function Selection_sort(){
       
-  var array_container = document.getElementById("array");
+  // var array_container = document.getElementById("array");
   var a = document.getElementById("arr" + i);
   set_bar_to(a, "red", 0);
 
@@ -40,7 +40,7 @@ function Selection_sort(){
   arr[i] = arr[min_index];
   arr[min_index] = temp;
 
-  set_bar_to(a, "linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%)", 200);
+  set_bar_to(a, "linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%)", 50);
 
   swap_height(min_index);
 
