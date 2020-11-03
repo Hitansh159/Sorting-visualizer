@@ -45,6 +45,10 @@ function sort() {
       set_paramenters(arr_size, array); 
       window.requestAnimationFrame(bubble_sort);
       break;  
+    case "Insertion sort":
+      set_paramenters(arr_size, array); 
+      window.requestAnimationFrame(insertion_sort);
+      break;
     default:
       break;
   }
