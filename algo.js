@@ -49,6 +49,15 @@ function sort() {
       set_paramenters(arr_size, array); 
       window.requestAnimationFrame(insertion_sort);
       break;
+    case "Merge sort":
+      set_paramenters(arr_size, array);
+      window.requestAnimationFrame(()=>{
+        temp =  merge_sort(array);
+        console.log(temp);
+        menu = document.getElementById("menu");
+        menu.style.display="inline-block";
+      });
+      break;
     default:
       break;
   }
