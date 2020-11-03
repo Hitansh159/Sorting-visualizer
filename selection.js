@@ -7,9 +7,15 @@ function set_paramenters(n, a) {
 }
 
 function set_bar_to(ele, color, time){
-  setTimeout(()=> {
-    window.requestAnimationFrame(()=>{ele.style.background = color;});
-  },time);
+  setTimeout(
+    ()=> {
+    window.requestAnimationFrame(
+      ()=>
+      {
+        ele.style.background = color;
+      });
+    }
+  ,time);
 }
 
 function swap_height(min_index){
