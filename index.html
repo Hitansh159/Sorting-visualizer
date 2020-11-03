@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>sorting visualizer</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+  <script src="algo.js"></script>
+  <script src="selection.js"></script>
+  <style>
+    /* menu button css */
+    .menu {
+      display: inline-block;
+      cursor: pointer;
+    }
+    
+    .bar1, .bar2, .bar3 {
+      width: 35px;
+      height: 5px;
+      background-color: #333;
+      margin: 6px 0;
+      transition: 0.4s;
+    }
+    
+    .change .bar1 {
+      -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+      transform: rotate(-45deg) translate(-9px, 6px);
+    }
+    
+    .change .bar2 {opacity: 0;}
+    
+    .change .bar3 {
+      -webkit-transform: rotate(45deg) translate(-8px, -8px);
+      transform: rotate(45deg) translate(-8px, -8px);
+    }
+
+    /* setting menu css */
+
+    .setting{
+      display: none;
+      max-width: 540px;
+      position: absolute;
+      z-index: 1;
+      right: 0;
+      background-color: rgb(221, 221, 221);
+      border-radius: 0 0 20px 20px;
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+
+    .arrayElement{
+      height: 10px;
+      width: 10px;
+      background: rgb(2,0,36);
+      background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+      font-size: 0px;
+      display: inline-block;
+      margin: 3px;
+    }
+
+    .array{
+      align-items : center;
+    }
+
+  </style>
+</head>
+<body>
+<!-- header -->
+<nav class="navbar navbar-light bg-light">
+  <h1> Sorting visualizer </h1>
+  
+  <div class="btn btn-primary" onclick="sort()">sort</div>
+
+  <div class="menu" id="menu" onclick="menu_toggle(this)">
+    <div class="bar1"></div>
+    <div class="bar2"></div>
+    <div class="bar3"></div>
+  </div>
+
+</nav>
+  
+<div id="setting" class="setting" >
+  <form>
+    <div class="form-group">
+      <label for="formControlRange">Nubmer of Input: </label>
+      <input type="range" class="form-control-range" id="number">
+      <label for="algorithm">Algorithm</label>
+      <select id="algo" class="form-control">
+        <option selected>Selection sort</option>
+        <option>Bubble sort</option>
+        <option>Insertion sort</option>
+        <option>Merge sort</option>
+        <option>count sort</option>
+        <option>!Radiax sort!EXPERIMENTAL</option>
+      </select><br>
+      <center>
+      <div onclick="data()" class="btn btn-primary">SET</div>
+      </center>
+    </div>
+  </form>
+</div>
+
+<center>
+  <div id="array">
+    <!-- array elemenets -->
+  </div>
+</center>
+  <br>
+  <div id="data" ></div>
+  <br>
+
+<script>
+function menu_toggle(x) {
+  x.classList.toggle("change");
+  ele = document.getElementById("setting");
+  ele.style.display = ele.style.display == "block" ? "none" : "block" ;
+}
+
+function data(){
+  num = parseInt(document.getElementById("number").value);
+  choice = document.getElementById("algo").value;
+  set_array(num,choice);
+  menu_toggle(document.getElementById("menu"));
+}
+
+</script>
+
+</body>
+</html>
