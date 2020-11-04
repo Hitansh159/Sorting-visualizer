@@ -21,10 +21,6 @@ function set_array(num, choice) {
     arr[i] = Math.floor(Math.random() * 45) + 1;
   }
   
-  // for checking
-  console.log(screen.width / num, arr);
-  document.getElementById("data").innerHTML = arr;
-
   set_height(arr, num);
   
   arr_size = num;
@@ -35,24 +31,36 @@ function set_array(num, choice) {
 function sort() {
   menu = document.getElementById("menu");
   menu.style.display="none";
+  var info = ["Time complexity = O(n^2)", "Time complexity = O(n*ln(n))", "Time complexity = O(n)"];
+  var data = document.getElementById("data");
+  data.innerHTML = "";
   
   //sorting
   switch (algo) {
     case "Selection sort": 
       set_paramenters(arr_size, array); 
       window.requestAnimationFrame(Selection_sort);
+      data.innerHTML = info[0];
       break;
     case "Bubble sort":
       set_paramenters(arr_size, array); 
       window.requestAnimationFrame(bubble_sort);
+      data.innerHTML = info[0];
       break;  
     case "Insertion sort":
       set_paramenters(arr_size, array); 
       window.requestAnimationFrame(insertion_sort);
+      data.innerHTML = info[0];
       break;
     case "Merge sort":
       set_paramenters(arr_size, array);
       window.requestAnimationFrame(()=>{visual_merge_sort();});
+      data.innerHTML = info[1];
+      break;
+    case "Count sort":
+      set_paramenters(arr_size, array);
+      window.requestAnimationFrame(count_sort);
+      data.innerHTML = info[2];
       break;
     default:
       break;
