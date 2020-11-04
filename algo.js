@@ -11,6 +11,7 @@ function set_height(arr, num){
 
 function set_array(num, choice) {
   console.log(num, choice);
+  num *=2;
   if (num == 0)
     num = 5;
   
@@ -51,12 +52,7 @@ function sort() {
       break;
     case "Merge sort":
       set_paramenters(arr_size, array);
-      window.requestAnimationFrame(()=>{
-        temp =  merge_sort(array);
-        console.log(temp);
-        menu = document.getElementById("menu");
-        menu.style.display="inline-block";
-      });
+      window.requestAnimationFrame(()=>{visual_merge_sort();});
       break;
     default:
       break;
