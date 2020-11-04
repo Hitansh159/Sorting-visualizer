@@ -12,7 +12,7 @@ function set_bar_to(ele, color, time){
   },time);
 }
 
-function swap_height(min_index){
+function swap_height_single(min_index){
   a = document.getElementById("arr" + i);
   b = document.getElementById("arr"+ min_index);
   temp = a.style.height;
@@ -42,7 +42,7 @@ function Selection_sort(){
 
   set_bar_to(a, "linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%)", 50);
 
-  swap_height(min_index);
+  swap_height_single(min_index);
 
   if(++i<num){  
     setTimeout(()=>
